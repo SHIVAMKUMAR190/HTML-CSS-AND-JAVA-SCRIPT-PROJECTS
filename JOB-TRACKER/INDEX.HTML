@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job / Internship Tracker</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+       
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                💼 <span>Job Tracker</span>
+            </div>
+
+            <nav>
+
+                <a href="#" class="active">
+                    🏠 Dashboard
+                </a>
+
+                <a href="#applications">
+                    📋 Applications
+                </a>
+
+                <a href="#analytics">
+                    📊 Analytics
+                </a>
+
+                <a href="#calendar">
+                    📅 Calendar
+                </a>
+
+                <a href="#">
+                    ⚙️ Settings
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+       
+
+        <main class="main">
+
+            <header class="topbar">
+
+                <h1>Job / Internship Tracker</h1>
+
+                <button id="DARK_AND_LIGHT">
+                    Dark Mode
+                </button>
+
+            </header>
+
+
+           
+
+            <section class="welcome">
+
+                <div>
+                    <h2>Welcome back! 👋</h2>
+
+                    <p>
+                        Here's what's happening with your applications.
+                    </p>
+                </div>
+
+                <button id="addBtn" class="add-btn">
+                    + Add Application
+                </button>
+
+            </section>
+
+
+         
+
+            <section class="dashboard">
+
+                <div class="stat-card total">
+                    <span>📁</span>
+
+                    <h3 id="total_count">0</h3>
+
+                    <p>Total Applications</p>
+                </div>
+
+
+                <div class="stat-card applied">
+                    <span>📨</span>
+
+                    <h3 id="applied_count">0</h3>
+
+                    <p>Applied</p>
+                </div>
+
+
+                <div class="stat-card interview">
+                    <span>👥</span>
+
+                    <h3 id="interview_count">0</h3>
+
+                    <p>Interviews</p>
+                </div>
+
+
+                <div class="stat-card selected">
+                    <span>✅</span>
+
+                    <h3 id="selected_count">0</h3>
+
+                    <p>Selected</p>
+                </div>
+
+
+                <div class="stat-card rejected">
+                    <span>❌</span>
+
+                    <h3 id="rejected_count">0</h3>
+
+                    <p>Rejected</p>
+                </div>
+
+            </section>
+
+
+          
+
+            <section id="applicationForm" class="application-form">
+
+                <h2>Application Details</h2>
+
+
+                <div class="form-grid">
+
+                    <input
+                        type="text"
+                        id="company"
+                        placeholder="Company Name"
+                    >
+
+
+                    <input
+                        type="text"
+                        id="role"
+                        placeholder="Job Role"
+                    >
+
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Location"
+                    >
+
+
+                   <div class="input-group">
+    <label for="appliedDate">Applied Date</label>
+    <input type="date" id="appliedDate">
+</div>
+                   <label for="interviewDate">Interview Date</label>
+<input type="date" id="interviewDate">
+
+                    <input
+                        type="url"
+                        id="jobLink"
+                        placeholder="Job Link"
+                    >
+
+
+                    <select id="job_status">
+
+                        <option value="Applied">
+                            Applied
+                        </option>
+
+                        <option value="Interview">
+                            Interview
+                        </option>
+
+                        <option value="Selected">
+                            Selected
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button id="saveBtn" class="save-btn">
+                    Save Application
+                </button>
+
+            </section>
+
+
+       
+
+            <section class="controls">
+
+                <div class="search">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search company or role..."
+                    >
+
+                    <button id="searchBtn">
+                        🔍 Search
+                    </button>
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="All Status">
+                        All Status
+                    </option>
+
+                    <option value="Applied">
+                        Applied
+                    </option>
+
+                    <option value="Interview">
+                        Interview
+                    </option>
+
+                    <option value="Selected">
+                        Selected
+                    </option>
+
+                    <option value="Rejected">
+                        Rejected
+                    </option>
+
+                </select>
+
+
+                <select id="sortDate">
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                </select>
+
+            </section>
+
+
+           
+
+            <section class="applications-section">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Recent Applications
+                    </h2>
+
+                </div>
+
+
+                <div id="applications">
+
+                </div>
+
+            </section>
+
+
+        
+
+            <section id="analytics" class="extra-section">
+
+                <h2>📊 Analytics</h2>
+
+                <p>
+                    Application statistics will appear here.
+                </p>
+  <div class="chart-container" style="position: relative; height: 280px; width: 280px; margin: auto;">
+  <canvas id="statusChart"></canvas>
+</div>
+            </section>
+
+
+
+            <section id="calendar" class="extra-section">
+
+    <h2>📅 Calendar</h2>
+
+    <p>
+        Upcoming Interviews
+    </p>
+
+    <div id="interviewRemindersList">
+
+    </div>
+
+</section>
+
+        </main>
+
+    </div>
+
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

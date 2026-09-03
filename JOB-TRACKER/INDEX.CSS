@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #17233c;
+}
+
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #071a35;
+    color: white;
+    padding: 30px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.sidebar nav a {
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #304bdc;
+}
+
+
+/* MAIN */
+
+.main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 30px;
+}
+
+
+/* TOPBAR */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+
+.topbar h1 {
+    font-size: 30px;
+}
+
+
+#DARK_AND_LIGHT {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #17233c;
+    color: white;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+.welcome h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+
+.welcome p {
+    color: #667085;
+}
+
+
+.add-btn {
+    border: none;
+    background: #3157e8;
+    color: white;
+    padding: 15px 22px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.add-btn:hover {
+    background: #2446c7;
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+
+.stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+
+.stat-card span {
+    font-size: 25px;
+}
+
+
+.stat-card h3 {
+    font-size: 35px;
+    margin: 15px 0 5px;
+}
+
+
+.stat-card p {
+    color: #667085;
+}
+
+
+/* FORM */
+
+.application-form {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e7eb;
+}
+
+
+.application-form h2 {
+    margin-bottom: 20px;
+}
+
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+
+.save-btn {
+    margin-top: 18px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3157e8;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* CONTROLS */
+
+.controls {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #e5e7eb;
+}
+
+
+.search {
+    display: flex;
+    gap: 8px;
+}
+
+
+.search input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+}
+
+
+.search button {
+    border: none;
+    padding: 12px 18px;
+    background: #3157e8;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.controls select {
+    padding: 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+}
+
+
+/* APPLICATIONS */
+
+.applications-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+
+#applications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+
+/* JS GENERATED CARD */
+
+.app_detail {
+    background: #fafbff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+
+.application_details h3 {
+    margin-bottom: 15px;
+}
+
+
+.application_details p {
+    margin: 10px 0;
+    color: #475467;
+}
+
+
+.application_details a {
+    display: block;
+    margin: 12px 0;
+    color: #3157e8;
+    word-break: break-all;
+}
+
+
+.btn2,
+.btn {
+    border: none;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 7px;
+}
+
+
+.btn2 {
+    background: #fee4e2;
+    color: #b42318;
+}
+
+
+.btn {
+    background: #e0e7ff;
+    color: #304bdc;
+}
+
+
+/* EXTRA SECTIONS */
+
+.extra-section {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+    border: 1px solid #e5e7eb;
+}
+
+
+.extra-section h2 {
+    margin-bottom: 10px;
+    
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+
+    .main {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+        padding: 22px;
+    }
+
+
+    .dashboard {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    #applications {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+
+
+@media (max-width: 700px) {
+
+    .layout {
+        display: block;
+    }
+
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+
+    .sidebar nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+
+    .sidebar nav a {
+        white-space: nowrap;
+    }
+
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+        padding: 18px;
+    }
+
+
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+
+    .topbar h1 {
+        font-size: 24px;
+    }
+
+
+    .welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+
+    .add-btn {
+        width: 100%;
+    }
+
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+
+    .search {
+        flex-direction: column;
+    }
+
+
+    .search button {
+        width: 100%;
+    }
+
+
+    #applications {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+
+
+@media (max-width: 450px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+
+    .stat-card h3 {
+        font-size: 30px;
+    }
+
+
+    .application_details button {
+        margin-top: 8px;
+    }
+
+}
+/* Container Box */
+#interviewRemindersList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 15px;
+    padding: 5px;
+}
+
+/* Base Reminder Card */
+.reminder-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reminder-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* Header Text */
+.reminder-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    color: #0f172a;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Role & Date Details */
+.reminder-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #475569;
+    font-weight: 500;
+}
+
+/* Upcoming Card Theme (Purple/Blue Accent) */
+.reminder-card.upcoming-reminder {
+    border-left: 5px solid #8b5cf6;
+    background: #faf5ff;
+}
+
+.badge-upcoming {
+    background: #8b5cf6;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Today's Card Theme (Urgent Red Accent) */
+.reminder-card.today-reminder {
+    border-left: 5px solid #ef4444;
+    background: #fef2f2;
+}
+
+.badge-today {
+    background: #ef4444;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+}
