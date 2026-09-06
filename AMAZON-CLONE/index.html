@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone - Practice Project</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background: #e3e6e6;
+        }
+        
+        /* Header Section - TODO: make search responsive later */
+        .logo {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background: white;
+        }
+        .logo img {
+            height: 80px;
+        }
+        
+        .searchbar {
+            background-color: #131921;
+            height: 60px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .logo2 img {
+            height: 40px;
+        }
+        #search-input {
+            border-radius: 4px;
+            height: 40px;
+            flex: 1;
+            max-width: 700px;
+            font-size: 16px;
+            padding: 0 10px;
+            border: none;
+            outline: none;
+        }
+        #search-input:focus {
+            box-shadow: 0 0 0 3px #febd69;
+        }
+        
+        /* Navbar - copied style from amazon */
+        .navbar {
+            background-color: #232f3e;
+            color: white;
+            padding: 8px 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .navbar span {
+            font-size: 14px;
+            padding: 5px 9px;
+            cursor: pointer;
+        }
+        .navbar span:hover {
+            outline: 1px solid white;
+            border-radius: 2px;
+        }
+        #cart-btn {
+            margin-left: auto;
+        }
+        #cart-count {
+            color: #f08804;
+            font-weight: bold;
+        }
+        
+        /* Main Content */
+        .container {
+            padding: 20px;
+            display: grid;
+            gap: 20px;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        
+        /* Banner - can add carousel later */
+        .box1 img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        /* Product Cards Grid */
+        .box2 {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        .card-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .card-box h2 {
+            font-size: 21px;
+            margin-bottom: 15px;
+            color: #0f1111;
+        }
+        .card-box h3 {
+            font-size: 13px;
+            margin-top: 8px;
+            color: #0f1111;
+            font-weight: 400;
+        }
+        .card-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .card-box img:hover {
+            transform: scale(1.02);
+            transition: 0.2s ease;
+        }
+        
+        /* Price Styling */
+        .price {
+            font-size: 18px;
+            color: #B12704;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        .price span {
+            font-size: 13px;
+            color: #565959;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+        .product-item {
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .product-item:hover {
+            background: #f7fafa;
+        }
+        
+        /* Kitchen Section Specific */
+        .cooker img {
+            height: 250px;
+            margin-bottom: 10px;
+        }
+        .other-kitchen-appliances {
+            display: flex;
+            gap: 10px;
+            text-align: center;
+        }
+        .other-kitchen-appliances div {
+            flex: 1;
+        }
+        .other-kitchen-appliances img {
+            height: 100px;
+        }
+        
+        /* 2x2 Grid for smaller items */
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .grid-2x2 img {
+            height: 120px;
+        }
+        
+        /* Horizontal Scroll Sections */
+        .box3, .box4 {
+            background: white;
+            padding: 20px;
+        }
+        .box3 h2, .box4 h2 {
+            font-size: 21px;
+            margin-bottom: 15px;
+            color: #0f1111;
+        }
+        .popular-items-this-season, .best-sellers-in-home-kitchen {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        /* Hide scrollbar but keep functionality */
+        .popular-items-this-season::-webkit-scrollbar {
+            height: 6px;
+        }
+        .popular-items-this-season::-webkit-scrollbar-thumb {
+            background: #aaa;
+            border-radius: 10px;
+        }
+        .popular-items-this-season .product-item, .best-sellers-in-home-kitchen .product-item {
+            min-width: 160px;
+            text-align: center;
+        }
+        .popular-items-this-season img, .best-sellers-in-home-kitchen img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        /* Back to Top Bar */
+        .back-to-top {
+            background: #37475a;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .back-to-top:hover {
+            background: #485769;
+        }
+        
+        /* Footer */
+        .foot {
+            background-color: #232f3e;
+            color: white;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+        .foot h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .foot ul {
+            list-style: none;
+        }
+        .foot li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .foot li:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Fixes */
+        @media (max-width: 768px) {
+            .searchbar { 
+                flex-wrap: wrap; 
+                height: auto; 
+            }
+            #search-input { 
+                width: 100%; 
+                order: 3;
+            }
+            .navbar { 
+                font-size: 12px; 
+                gap: 8px; 
+            }
+            .box1 img { 
+                height: 200px; 
+            }
+            .popular-items-this-season img { 
+                height: 150px; 
+            }
+            .foot {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>   
+    <header>
+        <!-- Main Logo -->
+        <div class="logo">
+            <img src="images/OIP.webp" alt="Amazon Logo">
+        </div>
+        
+        <!-- Search Bar with Logo -->
+        <div class="searchbar">
+            <div class="logo2">
+                <img src="images/OIP.webp">
+            </div>
+            <input type="text" placeholder="Search Amazon.in" id="search-input"> 
+        </div>
+        
+        <!-- Nav Links -->
+        <nav>
+            <div class="navbar">
+                <span>Today's Deals</span>
+                <span>Prime Video</span>
+                <span>Gift Cards</span>
+                <span>Sell</span>
+                <span>Registry</span>
+                <span>Customer Service</span>
+                <span id="cart-btn">Cart <b id="cart-count">0</b></span>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            
+            <!-- Hero Banner -->
+            <div class="box1">
+                <img src="images/download.gif" alt="Great Indian Festival Sale Banner">
+            </div>
+            
+            <!-- 3 Main Category Cards -->
+            <div class="box2">
+                <!-- Kitchen Card -->
+                <div class="card-box">
+                    <h2>Top categories in Kitchen appliances</h2>
+                    <div class="product-item cooker">
+                        <img src="images/coocker.jpg" alt="Pressure Cooker">
+                        <h3>Pressure Cookers</h3>
+                        <p class="price">₹1,499 <span>₹2,999</span></p>
+                    </div> 
+                    <div class="other-kitchen-appliances">
+                        <div class="product-item">
+                            <img src="images/coffee.jpg" alt="Coffee Maker Machine">
+                            <h3>Coffee Maker</h3>
+                            <p class="price">₹2,299 <span>₹4,499</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/pots and pans.jpg" alt="Non-stick Pots and Pans Set">
+                            <h3>Pots & Pans</h3>
+                            <p class="price">₹999 <span>₹1,999</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/kettles.jpg" alt="Electric Kettle">
+                            <h3>Kettles</h3>
+                            <p class="price">₹799 <span>₹1,499</span></p>
+                        </div>
+                    </div>
+                </div>  
+                
+                <!-- Home Card -->
+                <div class="card-box">
+                    <h2>New home arrivals under $50</h2>
+                    <div class="grid-2x2">
+                        <div class="product-item">
+                            <img src="images/kitchen and dinning.jpg" alt="Dining Table Set">
+                            <h3>Kitchen & Dining</h3>
+                            <p class="price">₹899 <span>₹1,599</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/home improve ment.jpg" alt="Home Tools">
+                            <h3>Home Improvement</h3>
+                            <p class="price">₹1,299 <span>₹2,499</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/decor.jpg" alt="Wall Decor">
+                            <h3>Decor</h3>
+                            <p class="price">₹499 <span>₹999</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/bedding and bath.jpg" alt="Bedsheet Set">
+                            <h3>Bedding & Bath</h3>
+                            <p class="price">₹699 <span>₹1,299</span></p>
+                        </div>
+                    </div>   
+                </div>
+                
+                <!-- Furniture Card -->
+                <div class="card-box">
+                    <h2>Easy updates for elevated spaces</h2>
+                    <div class="grid-2x2">
+                        <div class="product-item">
+                            <img src="images/baskets and hempers.jpg" alt="Storage Baskets">
+                            <h3>Baskets & Hampers</h3>
+                            <p class="price">₹599 <span>₹1,199</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/hardware.jpg" alt="Door Hardware">
+                            <h3>Hardware</h3>
+                            <p class="price">₹399 <span>₹799</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/acient firniture.jpg" alt="Accent Chair">
+                            <h3>Accent Furniture</h3>
+                            <p class="price">₹3,999 <span>₹7,999</span></p>
+                        </div>
+                        <div class="product-item">
+                            <img src="images/wallpaper.jpg" alt="Peel and Stick Wallpaper">
+                            <h3>Wallpaper & Paint</h3>
+                            <p class="price">₹899 <span>₹1,799</span></p>
+                        </div>
+                    </div>           
+                </div>  
+            </div>        
+            
+            <!-- Popular Items Row -->
+            <div class="box3">
+                <h2>Popular items this season</h2>
+                <div class="popular-items-this-season">
+                    <div class="images/product-item">
+                        <img src="images/mobile.jpg" alt="Android Smartphone">
+                        <h3>Smartphone</h3>
+                        <p class="price">₹12,999 <span>₹18,999</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/watch.jpg" alt="Digital Smart Watch">
+                        <h3>Smart Watch</h3>
+                        <p class="price">₹1,999 <span>₹3,999</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/skin care.jpg" alt="Skin Care Products">
+                        <h3>Skin Care Kit</h3>
+                        <p class="price">₹799 <span>₹1,499</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/spoons.jpg" alt="Steel Spoon Set">
+                        <h3>Spoon Set</h3>
+                        <p class="price">₹299 <span>₹599</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/gillet.jpg" alt="Winter Jacket">
+                        <h3>Jacket</h3>
+                        <p class="price">₹1,499 <span>₹2,999</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/tv.jpg" alt="LED Smart TV">
+                        <h3>Smart TV 43"</h3>
+                        <p class="price">₹24,999 <span>₹39,999</span></p>
+                    </div>
+                </div> 
+            </div>          
+            
+            <!-- Best Sellers Row -->
+            <div class="box4">
+                <h2>Best Sellers in Home and Kitchen</h2>
+                <div class="best-sellers-in-home-kitchen">
+                    <div class="product-item">
+                        <img src="images/kitchen store.jpg" alt="Mixer Grinder">
+                        <h3>Mixer Grinder</h3>
+                        <p class="price">₹2,499 <span>₹4,999</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/kitchen store2.jpg" alt="Air Fryer">
+                        <h3>Air Fryer</h3>
+                        <p class="price">₹3,999 <span>₹6,999</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/home product.avif" alt="Vacuum Cleaner">
+                        <h3>Vacuum Cleaner</h3>
+                        <p class="price">₹5,499 <span>₹9,999</span></p>
+                    </div>
+                    <div class="product-item">
+                        <img src="images/iron.jpg" alt="Steam Iron">
+                        <h3>Steam Iron</h3>
+                        <p class="price">₹899 <span>₹1,799</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Back to Top -->
+    <div class="back-to-top">
+        Back to top
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="foot">
+            <div class="foot1">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                    <li>Amazon Devices</li>
+                    <li>Amazon Science</li>
+                </ul>
+            </div>
+            <div class="foot2">
+                <h3>Make Money with Us</h3>
+                <ul>
+                    <li>Sell products on Amazon</li>
+                    <li>Sell on Amazon Business</li>
+                    <li>Sell apps on Amazon</li>
+                    <li>Advertise Your Products</li>
+                    <li>Host an Amazon Hub</li>
+                </ul>
+            </div>
+            <div class="foot3">
+                <h3>Amazon Payment Products</h3>
+                <ul>
+                    <li>Amazon Business Card</li>
+                    <li>Shop with Points</li>
+                    <li>Reload Your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+            <div class="foot4">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li>Amazon and COVID-19</li>
+                    <li>Your Account</li>
+                    <li>Your Orders</li>
+                    <li>Shipping Rates & Policies</li>
+                    <li>Returns & Replacements</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
