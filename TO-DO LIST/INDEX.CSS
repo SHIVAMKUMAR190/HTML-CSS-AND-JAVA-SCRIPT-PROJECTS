@@ -1,0 +1,162 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+
+header {
+    margin-bottom: 25px;
+}
+
+.heading h1 {
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#input-items {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#input-items:focus {
+    border-color: #4a90e2;
+}
+
+button {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#btn {
+    background-color: #4a90e2;
+    color: white;
+}
+
+#btn:hover {
+    background-color: #357abd;
+}
+
+
+#saveBtn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#saveBtn:hover {
+    background-color: #27ae60;
+}
+
+
+.TEXT {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #666;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+#items {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    gap: 10px;
+}
+
+.task-item .task {
+    flex: 1;
+    font-size: 1rem;
+    color: #2c3e50;
+    word-break: break-word;
+}
+
+
+.task-item .btn2 {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+}
+
+.task-item .btn2:hover {
+    background-color: #c0392b;
+}
+
+
+.task-item .edit {
+    background-color: #f1c40f;
+    color: white;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+}
+
+.task-item .edit:hover {
+    background-color: #d4ac0d;
+}
+
+
+#btn1 {
+    width: 100%;
+    max-width: 500px;
+    background-color: #d9534f;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+#btn1:hover {
+    background-color: #c9302c;
+}

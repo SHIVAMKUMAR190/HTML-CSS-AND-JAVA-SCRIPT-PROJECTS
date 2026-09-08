@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #5ee7df, transparent 35%),
+        radial-gradient(circle at bottom right, #4facfe, transparent 40%),
+        linear-gradient(135deg, #101c36, #172b4d);
+
+    color: white;
+    padding: 40px 20px 60px;
+}
+
+/* ================= HEADER ================= */
+
+#title-bar {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+#title-bar h1 {
+    font-size: 48px;
+    letter-spacing: 8px;
+    font-weight: 800;
+
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= MAIN ================= */
+
+main {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+}
+
+/* ================= SEARCH ================= */
+
+#cityInput {
+    width: 70%;
+    padding: 17px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+#cityInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+#cityInput:focus {
+    border-color: #5ee7df;
+    box-shadow: 0 0 0 3px rgba(94, 231, 223, 0.2);
+}
+
+/* ================= BUTTON ================= */
+
+#searchBtn {
+    width: 25%;
+    padding: 17px 10px;
+
+    margin-left: 2%;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #5ee7df, #4facfe);
+
+    color: #10203a;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+#searchBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(79, 172, 254, 0.35);
+}
+
+#searchBtn:active {
+    transform: translateY(0);
+}
+
+/* ================= WEATHER CARDS ================= */
+
+#city,
+#Temperature,
+#weather,
+#humidity,
+#wind,
+#windDir,
+#feelsLike,
+#cloud,
+#pressure,
+#precip,
+#chanceRain,
+#chanceSnow,
+#uv,
+#visibility,
+#dewPoint {
+
+    margin-top: 16px;
+    padding: 20px 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+/* Hover */
+
+#city:hover,
+#Temperature:hover,
+#weather:hover,
+#humidity:hover,
+#wind:hover,
+#windDir:hover,
+#feelsLike:hover,
+#cloud:hover,
+#pressure:hover,
+#precip:hover,
+#chanceRain:hover,
+#chanceSnow:hover,
+#uv:hover,
+#visibility:hover,
+#dewPoint:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= SPECIAL CARDS ================= */
+
+#city {
+    margin-top: 35px;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    text-align: center;
+}
+
+#Temperature {
+    font-size: 30px;
+    text-align: center;
+
+    background: rgba(94, 231, 223, 0.12);
+}
+
+#weather {
+    font-size: 21px;
+    text-align: center;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px 40px;
+    }
+
+    #title-bar h1 {
+        font-size: 35px;
+        letter-spacing: 5px;
+    }
+
+    #cityInput {
+        width: 100%;
+    }
+
+    #searchBtn {
+        width: 100%;
+        margin: 12px 0 0;
+    }
+
+    #city,
+    #Temperature,
+    #weather,
+    #humidity,
+    #wind,
+    #windDir,
+    #feelsLike,
+    #cloud,
+    #pressure,
+    #precip,
+    #chanceRain,
+    #chanceSnow,
+    #uv,
+    #visibility,
+    #dewPoint {
+
+        padding: 17px;
+        font-size: 16px;
+    }
+
+    #Temperature {
+        font-size: 25px;
+    }
+}
