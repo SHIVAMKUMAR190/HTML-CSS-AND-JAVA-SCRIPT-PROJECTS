@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TELL_ME_JOKES</title>
-    <style>
-    H1{
-        text-align: center;
-        color: red;
-    }
-    </style>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Jokes Hub</title>
+  <link rel="stylesheet" href="TELL_ME_JOKES.CSS">
 </head>
 <body>
-    <H1>TELL_ME_JOKES</H1>
-    <div>
-        
+
+  <main class="app-card">
+    <div class="card-header">
+      <span class="badge">😂 Haste Raho</span>
+      <h1 class="main-title">Desi Comedy Zone</h1>
     </div>
-    <SCript src="TELL_ME_JOKES.JS"></SCript>
+
+    <div class="joke-wrapper">
+      <div class="joke-box" id="jokeBox"></div>
+    </div>
+
+    <div class="card-footer">
+      <button class="action-btn copy-btn" id="copyBtn" title="Copy Joke">
+        📋 Copy
+      </button>
+      <button class="action-btn next-btn" id="nextBtn">
+        Next Joke ➔
+      </button>
+    </div>
+  </main>
+
+  <script src="TELL_ME_JOKES.JS"></script>
 </body>
 </html>

@@ -1,94 +1,58 @@
-
-
 let jokes = [
-"चर: कल मैं सूरज पर लैक्चर देने जा रही हूं <br>तुम लोग क्लास मिस मत करना। <br> पप्पू: लेकिन मैं नहीं आ पाऊंगा मैडम.<br>टीचर: क्यूं.<br>पप्पू: वो क्या है कि मेरी मम्मी मुझे इतनी दूर नहीं जाने देंगी। 🤣",
+  "टीचर: कल मैं सूरज पर लैक्चर देने जा रही हूं <br>तुम लोग क्लास मिस मत करना। <br><br>पप्पू: लेकिन मैं नहीं आ पाऊंगा मैडम.<br>टीचर: क्यूं?<br>पप्पू: वो क्या है कि मेरी मम्मी मुझे इतनी दूर नहीं जाने देंगी! 🤣",
 
-`बीमार पप्पू को देखने उसकी टीचर उसके घर आईं। टीचर ने देखा कि मोनू बिस्तर पर सिर के बल खड़ा हुआ है ।<br>
+  "बीमार पप्पू को देखने उसकी टीचर उसके घर आईं। टीचर ने देखा कि पप्पू बिस्तर पर सिर के बल खड़ा हुआ है।<br><br>टीचर: मैंने सुना था कि तुम बीमार हो पर तुम तो शीर्षासन कर रहे हो!<br>पप्पू: मैम बीमार ही हूं। अभी सिरदर्द की गोली खाई है, कहीं गलती से पेट में न चली जाए, इसलिए सिर के बल खड़ा हूं! 🤣",
 
-टीचर: मैंने सुना था कि तुम बीमार हो पर तुम तो शीर्षासन कर रहे हो!<br>
-पप्पू: मैम बीमार ही हूं। अभी सिरदर्द की गोली खाई है, कहीं गलती से पेट में न चली जाए, इसलिए सिर के बल खड़ा हूं! 🤣`,
+  "टीचर गुस्से में: पप्पू यहां मैं पढ़ा रही हूं और तुम बातें कर रहे हो?<br><br>पप्पू: यहां हम बातें कर रहे हैं और आप बीच में हमें पढ़ाने में लगी हैं! 🤣",
 
-`टीचर गुस्से में: पप्पू यहां मैं पढ़ा रही हूं और तुम बाते कर रहे हो?<br>
+  "छात्र पेपर दे रहा था, सवाल था: अंग्रेजी में अनुवाद करें – 'संतोष आम खाता है !'<br><br>छात्र ने अनुवाद किया:<br><strong>Satisfaction is a general account!!</strong> 🤣",
 
-पप्पू, टीचर से: यहां हम बातें कर रहे हैं और आप हमें पढ़ाने में लगी हैं! 🤣`,
+  "टीचर: अपने पापा का नाम अंग्रेजी में बोलो?<br>स्टूडेंट: ब्यूटिफुल रेड अंडरवियर!<br><br>टीचर: क्या बकवास है हिंदी में बताओ?<br>स्टूडेंट: सुंदर लाल चड्ढा… 🤣",
 
-`छात्र पेपर दे रहा था, पेपर में पूछा गया कि —<br>
+  "टीचर: बताओ तुम्हारा होमवर्क कहां है…<br><br>पप्पू: मैडम फेसबुक पर चेक करिए, मैंने स्क्रीनशॉट अपलोड कर दिए हैं और आपको टैग भी कर दिया है! 🤣",
 
-अनुवाद करें अंग्रेजी में –“संतोष आम खाता है !”<br>
+  "मास्टर जी: गजल और भाषण में क्या अंतर है?<br><br>छात्र: पराई औरत का हर शब्द गजल है,<br>और अपनी पत्नी का हर शब्द भाषण!! 🤣",
 
-छात्र: एक छात्र ने अनुवाद किया ,<br>
+  "मास्टर जी: सबसे ज्यादा नशा किसमें होता है?<br>छात्र: किताब में!<br><br>मास्टर जी: कैसे?<br>छात्र: क्योंकि किताब खोलते ही नींद आ जाती है! 🤣",
 
-जिसे पढ़कर आपकी ही नहीं
-अंग्रेजी की भी आत्मा काँप गई<br>
+  "टीचर: गोलू तुम कई दिनों से स्कूल नहीं आ रहे थे, कहां थे?<br>गोलू: बर्ड फ्लू हो गया था।<br><br>टीचर: पर वो तो परिंदों को होता है…<br>गोलू: आपने मुझे इंसान समझा ही कब, रोज तो मुर्गा बनाते हो! 🤣"
+];
 
-satisfaction is a general account!! 🤣`,
+let jokeBox = document.querySelector("#jokeBox");
+let nextBtn = document.querySelector("#nextBtn");
+let copyBtn = document.querySelector("#copyBtn");
 
-`टीचर: अपने पापा का नाम अंग्रेजी में बोलो?<br>
+let lastIndex = -1;
 
-स्टूडेंट: ब्यूटिफुल रेड अंडरवियर!<br>
-
-टीचर: क्या बकवास है हिंदी में बताओ?<br>
-
-स्टूडेंट: सुंदर लाल चड्ढा…🤣`,
-
-`टीचर: बताओ तुम्हार होमवर्क कहां है…<br>
-
-पप्पू: मैडम फेसबुक पर चेक करिए,<br>
-
-मैंने स्क्रीनशॉट अपलोड कर दिए हैं और आपको टैग भी कर दिया है। 🤣`,
-
-`एक मास्टर जी ने छात्र से पूछा <br>
-
-मास्टर जी: गजल और भाषण में क्या अंतर है ?<br>
-
-छात्र: पराई औरत का हर शब्द गजल है
-<br>
-औरअपनी बीबी का हर शब्द भाषण !! 🤣`,
-
-`मास्टर जी: सबसे ज्यादा नशा किसमें होता है?<br>
-
-छात्र: किताब में<br>
-
-मास्टर जी: कैसे?<br>
-
-छात्र: क्योंकि किताब खोलते ही नींद आ जाती है 🤣
-
-`,
-
-`टीचर: गोलू तुम कई दिनों से स्कूल नहीं आ रहे थे कहाँ थे ?<br>
-
-गोलू: बर्ड फ्लू हो गया था<br>
-
-टीचर: तुम्हें बर्ड फ्लू ये तो बर्ड को होता है…<br>
-
-गोलू: आपने मुझे इंसान समझा ही कहाँ <br>
-
-रोज तो मुर्गा बनाते हो !!! 🤣`
-
-
-
-]
-
-let random_jokes = Math.floor(Math.random()*jokes.length)
-
-let inHTML = document.querySelector("div")
-inHTML.innerHTML = jokes[random_jokes]
-inHTML.style.backgroundColor = "aqua"
-let btt =document.createElement("button")
-btt.style.height = "40px"
-btt.style.width = "100px"
-document.body.append(btt)
-btt.innerText = "NEXT JOKE"
-btt.style.backgroundColor = "black"
-btt.style.color = "red"
-
-btt.style.position = "fixed"
-btt.style.bottom = "20px"
-btt.style.right = "20px"
-
-
-btt.onclick = function(btt) {
-    let random_jokes = Math.floor(Math.random()*jokes.length)
-let inHTML = document.querySelector("div")
-inHTML.innerHTML = jokes[random_jokes]
+function getRandomIndex() {
+  let index;
+  do {
+    index = Math.floor(Math.random() * jokes.length);
+  } while (index === lastIndex && jokes.length > 1);
+  lastIndex = index;
+  return index;
 }
+
+function updateJoke() {
+  jokeBox.classList.add("fade-out");
+
+  setTimeout(() => {
+    jokeBox.innerHTML = jokes[getRandomIndex()];
+    jokeBox.classList.remove("fade-out");
+  }, 200);
+}
+
+nextBtn.addEventListener("click", updateJoke);
+
+copyBtn.addEventListener("click", () => {
+  let plainText = jokeBox.innerText;
+  navigator.clipboard.writeText(plainText).then(() => {
+    let originalText = copyBtn.innerText;
+    copyBtn.innerText = "✓ Copied!";
+    setTimeout(() => {
+      copyBtn.innerText = originalText;
+    }, 1500);
+  });
+});
+
+updateJoke();
