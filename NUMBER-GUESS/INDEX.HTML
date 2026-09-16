@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="INDEX.CSS">
+</head>
+<body>
+
+  <main class="game-card">
+    <h1>Guess The Number</h1>
+    <p class="subtitle">Pick a number between 1 and 100</p>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span>Chances Left</span>
+        <strong id="chancesLeft">15</strong>
+      </div>
+      <div class="stat-item">
+        <span>Previous Guesses</span>
+        <strong id="prevGuesses">-</strong>
+      </div>
+    </div>
+
+    <form id="guessForm">
+      <input type="number" id="guessInput" min="1" max="100" placeholder="Enter 1 - 100" required autocomplete="off">
+      <button type="submit" id="submitBtn">Guess</button>
+    </form>
+
+    <div class="message-box" id="messageBox">Take your first guess!</div>
+
+    <button id="restartBtn" class="restart-btn" style="display: none;">Play Again</button>
+  </main>
+
+  <script src="INDEX.JS"></script>
+</body>
+</html>
